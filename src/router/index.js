@@ -2,6 +2,8 @@ import { createWebHistory, createRouter } from "vue-router";
 // import Register from "@/views/RegisterPage.vue";
 import Login from "@/views/LoginPage.vue";
 import AdminUser from "@/views/user/AdminUser.vue";
+import Product from "@/views/product/AdminProduct.vue";
+
 
 
 const routes = [
@@ -10,15 +12,17 @@ const routes = [
         name: "login",
         component: Login,
     },
-    // {
-    //     path: "/register",
-    //     name: "register",
-    //     component: Register,
-    // },
+
     {
         path: "/admin",
         name: "adminpage",
         component: AdminUser,
+    },
+    //Product
+    {
+        path: "/admin/product",
+        name: "productadmin",
+        component: Product,
     },
     {
         path: "/:pathMatch(.*)*",
