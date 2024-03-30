@@ -1,17 +1,17 @@
 <template>
-    <Form @submit="submitLogin" :validation-schema="loginFormSchema" class="login-form">
-        <div class="form-group">
+    <Form @submit="submitLogin" :validation-schema="loginFormSchema" class="login-form"
+        style="border: 1px solid #ccc; padding: 20px;">
+        <div class="form-group  mt-4 mb-4">
             <label for="email">Email</label>
-            <Field name="email" type="email" class="form-control" v-model="loginData.email" />
+            <Field name="email" type="email" class="form-control" placeholder="Nhập vào Email của bạn"
+                v-model="loginData.email" />
             <ErrorMessage name="email" class="error-feedback text-danger" />
         </div>
-        <div class="form-group">
+        <div class="form-group mt-4 mb-4">
             <label for="password">Mật khẩu</label>
-            <Field name="password" type="password" class="form-control" v-model="loginData.password" />
+            <Field name="password" type="password" class="form-control" placeholder="Nhập vào mật khẩu của bạn"
+                v-model="loginData.password" />
             <ErrorMessage name="password" class="error-feedback text-danger" />
-        </div>
-        <div class="text-center">
-            <p>Bạn chưa có tài khoản? <router-link to="/register">Đăng ký</router-link></p>
         </div>
         <div class="form-group d-flex justify-content-center">
             <button class="btn btn-primary" type="submit">Đăng nhập
@@ -50,8 +50,49 @@ export default {
 };
 </script>
 
-<style scoped>
-.login-form .form-group {
-    margin-bottom: 20px;
+<style>
+.login-form {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.form-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.error-feedback {
+    margin-top: 0.5rem;
 }
 </style>

@@ -11,7 +11,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(contact, index) in contacts" :key="contact._id" :class="{ active: index === activeIndex }"
+                <tr v-for="(contact, index) in filteredContacts" :key="contact._id" :class="{ active: index === activeIndex }"
                     @click="updateActiveIndex(index)">
                     <td>{{ contact.name }}</td>
                     <td>{{ contact.email }}</td>

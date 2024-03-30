@@ -6,11 +6,11 @@ class AuthService {
     async getAll() {
         return (await this.api.get("/")).data;
     }
+    async login(email, password) {
+        return (await this.api.post("/login", { email, password })).data;
+    }
     // async create(data) {
     //     return (await this.api.post("/register", data)).data;
-    // }
-    // async login(email, password) {
-    //     return (await this.api.post("/login", { email, password })).data;
     // }
     // async deleteAll() {
     //     return (await this.api.delete("/")).data;

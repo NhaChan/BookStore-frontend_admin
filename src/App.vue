@@ -10,7 +10,7 @@ export default {
 
 <template>
   <div id="app">
-    <AppHeader />
+    <AppHeader v-if="$route.path.includes('/admin')"/>
     <div class="container mt-3">
       <router-view />
     </div>

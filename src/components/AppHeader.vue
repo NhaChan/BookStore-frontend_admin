@@ -3,7 +3,7 @@
         <a href="/" class="navbar-brand">Quản lý sách</a>
         <div class="mr-auto navbar-nav">
             <li class="nav-item">
-                <router-link :to="{ name: 'adminuser' }" class="nav-link">
+                <router-link :to="{ name: 'login' }" class="nav-link">
                     Sách
                     <i class="fas fa-book"></i>
                 </router-link>

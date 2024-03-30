@@ -12,8 +12,7 @@
 <script>
 import LoginForm from "@/components/LoginForm.vue";
 import AuthService from "@/services/auth.service.js";
-import Cookies from 'js-cookie';
-
+import Cookies from "js-cookie"
 export default {
     components: {
         LoginForm,
