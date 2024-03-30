@@ -11,7 +11,7 @@
             <ProductList v-if="filteredContactsCount > 0" :products="filteredContacts"
                 v-model:activeIndex="activeIndex" />
             <p v-else>Không có liên hệ nào.</p>
-            <button type="button" class="btn btn-outline-success">
+            <button type="button"  class="btn btn-outline-success"@click="goToAddProduct" >
                 <i class="fas fa-plus"></i> Thêm sản phẩm
             </button>
 
@@ -78,8 +78,11 @@ export default {
             this.retrieveContacts();
             this.activeIndex = -1;
         },
-        mounted() {
-            this.refreshList();
+        // mounted() {
+        //     this.refreshList();
+        // },
+        goToAddProduct() {
+            this.$router.push({ name: "product.add" })
         }
     },
     mounted() {
