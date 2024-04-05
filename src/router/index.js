@@ -20,12 +20,12 @@ const routes = [
     },
 
     //user
-    // {
-    //     path: "/admin/user/user/:id",
-    //     name: "user.edit",
-    //     component: () => import("@/views/product/ProductEdit.vue"),
-    //     props: true
-    // },
+    {
+        path: "/admin/user/user/:id",
+        name: "user.edit",
+        component: () => import("@/views/user/UserEdit.vue"),
+        props: true
+    },
     //Product
     {
         path: "/admin/product",

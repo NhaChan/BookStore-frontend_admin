@@ -18,11 +18,11 @@
                     <td>{{ contact.address }}</td>
                     <td>{{ contact.phone }}</td>
                     <td>
-                        <!-- <div>
-                            <router-link :to="{ name: 'product.edit', params: { id: product._id}, }">
+                        <div>
+                            <router-link :to="{ name: 'user.edit', params: { id: contact._id}, }">
                                 <button type="button" class="btn btn-outline-success">Sửa</button>
                             </router-link>
-                        </div> -->
+                        </div>
                     </td>
                 </tr>
             </tbody>
@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import UserService from '@/services/auth.service';
+
 export default {
     props: {
         contacts: { type: Array, default: [] },
@@ -40,7 +42,7 @@ export default {
     methods: {
         updateActiveIndex(index) {
             this.$emit("update:activeIndex", index);
-        }
+        },
     },
     computed: {
         filteredContacts() {
