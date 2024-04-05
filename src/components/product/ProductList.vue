@@ -9,6 +9,8 @@
                     <th scope="coll">Hình ảnh</th>
                     <th scope="coll">Số lượng kho</th>
                     <th scope="coll"></th>
+                    <th scope="coll"></th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -22,7 +24,15 @@
                     </td>
                     <td>{{ product.quantity }}</td>
                     <td>
-                        
+                        <div>
+                            <router-link :to="{ name: 'product.edit', params: { id: product._id}, }">
+                                <button type="button" class="btn btn-outline-success">Sửa</button>
+                            </router-link>
+                        </div>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-outline-danger" @click="deleteContact(product._id)">Xóa</button>
+
                     </td>
                 </tr>
             </tbody>
@@ -31,6 +41,7 @@
 </template>
 
 <script>
+import productService from '@/services/product.service';
 export default {
     props: {
         products: { type: Array, default: [] },
@@ -40,6 +51,10 @@ export default {
     methods: {
         updateActiveIndex(index) {
             this.$emit("update:activeIndex", index);
+        },
+        async deleteContact(id){
+            await productService.delete(id);
+            window.location.reload();
         }
     },
 };

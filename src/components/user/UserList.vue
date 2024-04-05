@@ -1,13 +1,13 @@
 <template>
     <div class="table-responsive">
         <table class=" table table-bordered ">
-            <thead class="table-light">
+            <thead class="table-success">
                 <tr>
-                    <th scope="coll">Name</th>
+                    <th scope="coll">Tên người dùng</th>
                     <th scope="coll">Email</th>
-                    <th scope="coll">Address</th>
-                    <th scope="coll">Phone</th>
-                    <th scope="coll">Action</th>
+                    <th scope="coll">Địa chỉ</th>
+                    <th scope="coll">Số điện thoại</th>
+                    <th scope="coll"></th>
                 </tr>
             </thead>
             <tbody>
@@ -17,6 +17,13 @@
                     <td>{{ contact.email }}</td>
                     <td>{{ contact.address }}</td>
                     <td>{{ contact.phone }}</td>
+                    <td>
+                        <!-- <div>
+                            <router-link :to="{ name: 'product.edit', params: { id: product._id}, }">
+                                <button type="button" class="btn btn-outline-success">Sửa</button>
+                            </router-link>
+                        </div> -->
+                    </td>
                 </tr>
             </tbody>
         </table>

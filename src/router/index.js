@@ -18,6 +18,14 @@ const routes = [
         name: "adminpage",
         component: AdminUser,
     },
+
+    //user
+    // {
+    //     path: "/admin/user/user/:id",
+    //     name: "user.edit",
+    //     component: () => import("@/views/product/ProductEdit.vue"),
+    //     props: true
+    // },
     //Product
     {
         path: "/admin/product",
@@ -28,6 +36,12 @@ const routes = [
         path: "/admin/product/addproduct",
         name: "product.add",
         component: () => import("@/views/product/ProductAdd.vue"),
+        props: true
+    },
+    {
+        path: "/admin/product/addproduct/:id",
+        name: "product.edit",
+        component: () => import("@/views/product/ProductEdit.vue"),
         props: true
     },
     {

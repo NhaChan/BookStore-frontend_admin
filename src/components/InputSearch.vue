@@ -16,11 +16,11 @@ export default {
 </script>
 
 <template>
-    <div class="input-group">
+    <div class="input-group mt-5">
         <input type="text" class="form-control" placeholder="Nhập thông tin cần tìm" :value="modelValue"
             @input="updateModelValue" @keyup.enter="submit" />
             <button class="btn btn-outline-secondary" type="button" @click="submit">
-                <i class="fas fa-search"></i> Tìm kiếm
+                <i class="fas fa-search "></i> Tìm kiếm
             </button>
     </div>
 </template>

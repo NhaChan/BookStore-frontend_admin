@@ -37,8 +37,13 @@ export default {
                 password: "",
             },
             loginFormSchema: yup.object().shape({
-                email: yup.string().email("Email không hợp lệ.").required("Vui lòng nhập Email."),
-                password: yup.string().required("Vui lòng nhập mật khẩu."),
+                email: yup
+                .string()
+                .email("Email không hợp lệ.")
+                .required("Vui lòng nhập Email."),
+                password: yup
+                .string()
+                .required("Vui lòng nhập mật khẩu."),
             }),
         };
     },

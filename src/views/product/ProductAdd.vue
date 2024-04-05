@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container mt-5">
         <h4 class="text-center">Thêm sản phẩm mới</h4>
         <div class="col-md-6 mx-auto">
             <ProductForm :product="newProduct" @submit:product="addProduct" />
