@@ -21,8 +21,11 @@
 
 <template>
         <nav class="navbar navbar-dark bg-dark fixed-top ">
-            <div class="container p-3">
-                <a class="navbar-brand" href="/admin">Quản lý sách</a>
+            <div class="container p-1">
+                <a class="navbar-brand" href="/admin">
+                    <img src="https://i.pinimg.com/564x/82/75/ea/8275ea5e8c59e1f95401a6bd72566d41.jpg" alt="mdo" width="50" height="50" class="rounded-circle"> 
+                    Quản lý sách
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
                     aria-label="Toggle navigation">
