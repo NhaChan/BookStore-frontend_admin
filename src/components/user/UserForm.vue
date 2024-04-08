@@ -1,38 +1,37 @@
 <template>
-    <Form @submit="submitContact" :validation-schema="contactFormSchema">
-        <div class="form-group mt-4 mb-4">
-            <Field type="text" class="form-control" name="name"  v-model="contactLocal.name" />
-            <ErrorMessage name="name" class="error-feedback text-danger" />
+    <Form style="max-width: 500px; margin: 0 auto;" @submit="submitContact" :validation-schema="contactFormSchema" class="login-form">
+        <div class="form-group">
+            <label for="name">Tên</label>
+            <Field name="name" type="text" class="form-control" v-model="contactLocal.name" />
+            <ErrorMessage name="name" class="error-feedback" />
         </div>
-        <div class="form-group mt-4 mb-4">
-            <Field type="text" class="form-control" name="phone"
-                v-model="contactLocal.phone" />
-            <ErrorMessage name="phone" class="error-feedback text-danger" />
+        <div class="form-group">
+            <label for="email">E-mail</label>
+            <Field name="email" type="email" class="form-control" v-model="contactLocal.email" />
+            <ErrorMessage name="email" class="error-feedback" />
         </div>
-        <div class="form-group mt-4 mb-4">
-            <Field type="email" for="email" class="form-control" name="email" id="email"
-                v-model="contactLocal.email" />
-            <ErrorMessage name="email" class="error-feedback text-danger" />
+        <div class="form-group">
+            <label for="address">Địa chỉ</label>
+            <Field name="address" type="text" class="form-control" v-model="contactLocal.address" />
+            <ErrorMessage name="address" class="error-feedback" />
         </div>
-        <div class="form-group mt-4 mb-4">
-            <Field type="password" class="form-control" name="password"
-                v-model="contactLocal.password"/>
-            <ErrorMessage name="password" class="error-feedback text-danger" />
+        <div class="form-group">
+            <label for="phone">Điện thoại</label>
+            <Field name="phone" type="tel" class="form-control" v-model="contactLocal.phone" />
+            <ErrorMessage name="phone" class="error-feedback" />
         </div>
-        <div class="form-group mt-4 mb-4">
-            <Field type="password" class="form-control" name="confirmPassword"
-                v-model="contactLocal.confirmPassword"/>
-            <ErrorMessage name="confirmPassword" class="error-feedback text-danger" />
-        </div>
-        
-    </Form>
+        <div class="form-group">
+            <button class="btn btn-primary me-1" @click="submitContact">
+                <i class="fas fa-save"></i> Lưu
+            </button>
 
+        </div>
+    </Form>
 </template>
 
 <script>
-import { Form, Field, ErrorMessage } from "vee-validate";
 import * as yup from "yup";
-
+import { Form, Field, ErrorMessage } from "vee-validate";
 export default {
     components: {
         Form,
@@ -74,7 +73,55 @@ export default {
     methods: {
         submitContact() {
             this.$emit("submit:contact", this.contactLocal);
+            // console.log(this.contactLocal);
         }
     },
-}
+};
 </script>
+
+<style>
+.login-form {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.form-wrapper {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.error-feedback {
+    margin-top: 0.5rem;
+}
+</style>

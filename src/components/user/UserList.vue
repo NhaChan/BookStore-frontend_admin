@@ -19,7 +19,7 @@
                     <td>{{ contact.phone }}</td>
                     <td>
                         <div>
-                            <router-link :to="{ name: 'user.edit', params: { id: contact._id}, }">
+                            <router-link :to="{ name: 'contact.edit', params: { id: contact._id}, }">
                                 <button type="button" class="btn btn-outline-success">Sửa</button>
                             </router-link>
                         </div>

@@ -22,7 +22,7 @@ const routes = [
     //user
     {
         path: "/admin/user/user/:id",
-        name: "user.edit",
+        name: "contact.edit",
         component: () => import("@/views/user/UserEdit.vue"),
         props: true
     },
