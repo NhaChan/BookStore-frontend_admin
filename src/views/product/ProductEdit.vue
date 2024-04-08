@@ -1,6 +1,6 @@
 <template>
-    <div class="container">
-        <h4 class="text-center">Hiệu chỉnh Liên hệ</h4>
+    <div class="container mt-5">
+        <h3 class="text-center ">Hiệu chỉnh Liên hệ</h3>
         <div class="col-md-9 mx-auto">
             <ProductForm :product="product" @submit:product="updateProduct" @delete:product="deleteProduct" />
             <p class="text-center">{{ message }}</p>

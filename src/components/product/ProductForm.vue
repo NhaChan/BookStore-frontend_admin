@@ -1,5 +1,5 @@
 <template>
-    <Form @submit="submitProduct" :validation-schema="ProductFormSchema" class="login-form">
+    <Form style="max-width: 600px; margin: 0 auto;" @submit="submitProduct" :validation-schema="ProductFormSchema" class="login-form">
         <div class="form-group mt-4 mb-4">
             <label for="title">Tiêu đề</label>
             <Field name="title" type="text" class="form-control" v-model="productLocal.title" />
@@ -14,6 +14,11 @@
             <label for="genre">Thể loại</label>
             <Field name="genre" type="text" class="form-control" v-model="productLocal.genre" />
             <ErrorMessage name="genre" class="error-feedback" />
+        </div>
+        <div class="form-group mt-4 mb-4">
+            <label for="description">Mô tả</label>
+            <Field name="description" type="textarea" class="form-control" v-model="productLocal.description" />
+            <ErrorMessage name="description" class="error-feedback" />
         </div>
         <div class="form-group mt-4 mb-4">
             <label for="imageUrl">Hình ảnh (URL)</label>

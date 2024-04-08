@@ -6,6 +6,7 @@
                     <th scope="coll">Tên tác phẩm</th>
                     <th scope="coll">Tác giả</th>
                     <th scope="coll">Thể loại</th>
+                    <th scope="coll">Mô tả</th>
                     <th scope="coll">Hình ảnh</th>
                     <th scope="coll">Số lượng kho</th>
                     <th scope="coll"></th>
@@ -19,6 +20,7 @@
                     <td>{{ product.title }}</td>
                     <td>{{ product.author }}</td>
                     <td>{{ product.genre }}</td>
+                    <td>{{ product.description }}</td>
                     <td>
                         <img :src="product.imageUrl" alt="hinh anh" style="height: 100px;" />
                     </td>
