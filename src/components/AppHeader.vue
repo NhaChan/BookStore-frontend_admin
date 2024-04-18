@@ -1,70 +1,135 @@
-<!-- <template>
-    <nav class="navbar navbar-expand navbar-dark bg-dark d-flex justify-content-evenly">
-        <a href="/" class="navbar-brand">Quản lý sách</a>
-        <div class="mr-auto navbar-nav">
-            <li class="nav-item">
-                <router-link :to="{ name: 'adminpage' }" class="nav-link">
-                    Người dùng
-                    <i class="fas fa-book"></i>
-                </router-link>
-            </li>
-            <li class="nav-item">
-                <router-link :to="{ name: 'productadmin' }" class="nav-link">
-                    Sản phẩm
-                    <i class="fas fa-book"></i>
-                </router-link>
-            </li>
-            
-        </div>
-    </nav>
-</template> -->
-
 <template>
-        <nav class="navbar navbar-dark bg-dark fixed-top ">
-            <div class="container p-1">
-                <a class="navbar-brand" href="/admin">
-                    <img src="https://i.pinimg.com/564x/82/75/ea/8275ea5e8c59e1f95401a6bd72566d41.jpg" alt="mdo" width="50" height="50" class="rounded-circle"> 
-                    Quản lý sách
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+    <div>
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+            <!-- Sidebar Toggle (Topbar) -->
+            <form class="form-inline">
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
                 </button>
-                <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
-                    aria-labelledby="offcanvasDarkNavbarLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Quản lý</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">
-                                    <router-link :to="{ name: 'adminpage' }" class="nav-link">
-                                        Người dùng
-                                        <i class="fas fa-book"></i>
-                                    </router-link>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <router-link :to="{ name: 'productadmin' }" class="nav-link">
-                                        Sản phẩm
-                                        <i class="fas fa-book"></i>
-                                    </router-link>
-                                </a>
-                            </li>
-                        </ul>
+            </form>
+
+            <!-- Topbar Search -->
+            <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                        aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
                     </div>
                 </div>
-            </div>
-        </nav>
+            </form> -->
 
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+
+                <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                <li class="nav-item dropdown no-arrow d-sm-none">
+                    <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-search fa-fw"></i>
+                    </a>
+                    <!-- Dropdown - Messages -->
+                    <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                        aria-labelledby="searchDropdown">
+                        <form class="form-inline mr-auto w-100 navbar-search">
+                            <div class="input-group">
+                                <input type="text" class="form-control bg-light border-0 small"
+                                    placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+
+                <div class="topbar-divider d-none d-sm-block"></div>
+                
+                <!-- Nav Item - User Information -->
+                <li class="nav-item mx-5" v-if="userName" >
+                <router-link to="#" class="nav-link" @click="confirmLogout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="text-dark"> {{ userName }}</span>
+                </router-link>
+            </li>
+
+            </ul>
+
+        </nav>
+    </div>
 </template>
 
 <script>
 import 'bootstrap/dist/js/bootstrap.bundle';
+import Cookies from 'js-cookie';
+
+export default {
+    data() {
+        return {
+            userName: '',
+            userId: '',
+        };
+    },
+    mounted() {
+        this.getUserName();
+        this.loadAdditionalScripts();
+    },
+    methods: {
+        getUserName() {
+            const name = Cookies.get('userName');
+            const id = Cookies.get('userId');
+            // console.log("userName:", userName);
+            if (name) {
+                this.userId = id;
+                this.userName = name;
+            }
+        },
+        confirmLogout() {
+            if (confirm("Bạn có chắc muốn đăng xuất không?")) {
+                this.logout();
+            }
+        },
+        logout() {
+            Cookies.remove('userName');
+            Cookies.remove('userId');
+            this.userName = '';
+            this.$router.push({ name: 'login' });
+        },
+        loadAdditionalScripts() {
+            const scripts = [
+                "vendor/jquery/jquery.min.js",
+                "vendor/bootstrap/js/bootstrap.bundle.min.js",
+                "vendor/jquery-easing/jquery.easing.min.js",
+                "js/sb-admin-2.min.js",
+                "vendor/chart.js/Chart.min.js",
+                "js/demo/chart-area-demo.js",
+                "js/demo/chart-pie-demo.js"
+            ];
+
+            scripts.forEach(script => {
+                const scriptElement = document.createElement('script');
+                scriptElement.src = script;
+                document.head.appendChild(scriptElement);
+            });
+        }
+    }
+};
+
+
 
 </script>
+
+<style>
+@import url('../vendor/fontawesome-free/css/all.min.css');
+
+/* Google Fonts CSS */
+@import url('https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i');
+
+/* Custom styles for SB Admin 2 */
+@import url('../css/sb-admin-2.min.css');
+</style>
