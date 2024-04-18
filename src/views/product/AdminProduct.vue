@@ -1,20 +1,26 @@
 <template>
-    <div class="page row">
-        <div class="col-12">
+    <div class="">
+        <!-- <div class="col-12">
             <InputSearch v-model="searchText" />
+        </div> -->
+
+        <div class="row">
+            <div class="col-sm-12 col-md-3">
+                <button type="button" class="btn btn-outline-primary p-3 ms-4 mb-2" @click="goToAddProduct">
+                    <i class="fas fa-plus"></i> Thêm sản phẩm
+                </button>
+            </div>
+            <div class="col-sm-12 col-md-8 d-flex justify-content-end mt-2">
+                <div id="dataTable_filter" class="dataTables_filter">
+                    <InputSearch v-model="searchText" />
+                </div>
+            </div>
         </div>
+
         <div class="mt-3">
-            <h4 >
-                Sản phẩm
-                <i class="fas fa-address-book"></i>
-            </h4>
             <ProductList v-if="filteredContactsCount > 0" :products="filteredContacts"
                 v-model:activeIndex="activeIndex" />
             <p v-else>Không có liên hệ nào.</p>
-            <button type="button"  class="btn btn-outline-success"@click="goToAddProduct" >
-                <i class="fas fa-plus"></i> Thêm sản phẩm
-            </button>
-
         </div>
     </div>
 </template>

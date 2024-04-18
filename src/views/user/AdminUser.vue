@@ -1,13 +1,11 @@
 <template>
     <div class="page row">
-        <div class="col-12">
-            <InputSearch v-model="searchText" />
-        </div>
+        <div class="col-sm-12 col-md-8 d-flex justify-content-start mx-4">
+                <div id="dataTable_filter" class="dataTables_filter">
+                    <InputSearch v-model="searchText" />
+                </div>
+            </div>
         <div class="mt-3">
-            <h4 >
-                Nguời dùng
-                <i class="fas fa-address-book"></i>
-            </h4>
             <UserList v-if="filteredContactsCount > 0" :contacts="filteredContacts"
                 v-model:activeIndex="activeIndex" />
             <p v-else>Không có liên hệ nào.</p>

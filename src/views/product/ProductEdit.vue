@@ -1,5 +1,5 @@
 <template>
-    <div class="container mt-5">
+    <div class="container">
         <h3 class="text-center ">Hiệu chỉnh Liên hệ</h3>
         <div class="col-md-9 mx-auto">
             <ProductForm :product="product" @submit:product="updateProduct" @delete:product="deleteProduct" />
@@ -60,6 +60,7 @@ export default {
                 } catch (error) {
                     console.log(error);
                 }
+                
             }
         },
     },

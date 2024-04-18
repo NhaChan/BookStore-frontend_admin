@@ -3,6 +3,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import Login from "@/views/LoginPage.vue";
 import AdminUser from "@/views/user/AdminUser.vue";
 import Product from "@/views/product/AdminProduct.vue";
+import OrderManager from "@/views/order/OrderManager.vue";
 
 
 
@@ -43,6 +44,11 @@ const routes = [
         name: "product.edit",
         component: () => import("@/views/product/ProductEdit.vue"),
         props: true
+    },
+    {
+        path: "/admin/order",
+        name: "order",
+        component: OrderManager,
     },
     {
         path: "/:pathMatch(.*)*",
