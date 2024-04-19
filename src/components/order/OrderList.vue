@@ -39,7 +39,7 @@
                     <ul class="navbar-nav ml-auto">
                         <div class=" d-flex justify-content-end align-items-center">
                             <router-link :to="{ name: 'order.edit', params: { id: order._id }, }">
-                                <button class="btn btn-sm btn-success" style="white-space: nowrap;">
+                                <button class="btn btn-sm btn-primary " style="white-space: nowrap;">
                                     <i class="fas fa-plus"></i> Cập nhật trạng thái
                                 </button>
                             </router-link>
