@@ -58,7 +58,7 @@ export default {
 <style>
 .login-form {
     background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
+    /* border: 1px solid #dee2e6; */
     border-radius: 5px;
     padding: 20px;
 }

@@ -1,6 +1,6 @@
 <template>
-    <div class="container">
-        <h4 class="text-center">Đăng nhập</h4>
+    <div class="container p-5">
+        <h4 class="text-center text-primary fw-bold">Đăng nhập</h4>
         <div class="col-md-5 mx-auto">
             <LoginForm @submit:login="loginUser" />
             <p class="text-center text-danger ">{{ message }}</p>

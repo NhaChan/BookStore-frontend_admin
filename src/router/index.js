@@ -4,14 +4,19 @@ import Login from "@/views/LoginPage.vue";
 import AdminUser from "@/views/user/AdminUser.vue";
 import Product from "@/views/product/AdminProduct.vue";
 import OrderManager from "@/views/order/OrderManager.vue";
-
-
+import PageAdmin from "@/components/PageAdmin.vue";
 
 const routes = [
     {
         path: "/",
         name: "login",
         component: Login,
+    },
+
+    {
+        path: "/adminpage",
+        name: "admin",
+        component: PageAdmin,
     },
 
     {
@@ -49,6 +54,13 @@ const routes = [
         path: "/admin/order",
         name: "order",
         component: OrderManager,
+    },
+    {
+        path: "/admin/order/:id",
+        name: "order.edit",
+        component: () => import("@/views/order/OrderEdit.vue"),
+        props: true
+
     },
     {
         path: "/:pathMatch(.*)*",
