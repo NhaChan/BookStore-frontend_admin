@@ -40,9 +40,9 @@ export default {
             orderLocal: this.order,
             orderFormSchema,
             statusOptions: [
-                { value: 'Mượn', text: 'Đang mượn' },
-                { value: 'Đã trả', text: 'Đã trả' },
-                { value: 'Đã hủy', text: 'Đã hủy' }
+                { value: 'Đang chờ duyệt', text: 'Đang chờ duyệt' },
+                { value: 'Duyệt', text: 'Duyệt' },
+                { value: 'Đã trả', text: 'Đã trả' }
             ],
         };
     },

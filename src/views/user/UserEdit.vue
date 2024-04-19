@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h3 class="text-center">Thông tin người dùng</h3>
+        <h3 class="text-center text-primary fw">Cập nhật thông tin người dùng</h3>
         <div class="col-md-6 mx-auto">
             <ContactForm :contact="contact" @submit:contact="updateContact" />
             <p class="text-center">{{ message }}</p>

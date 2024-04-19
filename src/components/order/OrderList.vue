@@ -11,11 +11,13 @@
                 <div class="medium mb-1"> Người mượn: <span class="fw-bold">{{ order.name }}
                     </span></div>
                 <nav class="navbar navbar-expand navbar-light bg-light mb-4">
-                    <h6> Trạng thái:
+                    <h6> Trạng thái: 
                         <span :class="{
-                            'text-info': order.status === 'Mượn',
-                            'text-primary': order.status === 'Đã trả',
-                            'text-danger': order.status === 'Đã hủy'
+                            'text-warning fw-bold fs-5 mx-3':  order.status === 'Đang chờ duyệt',
+                            'text-primary fw-bold fs-5 mx-3':  order.status === 'Duyệt',
+                            'text-success fw-bold fs-5 mx-3':  order.status === 'Đã trả',
+                            'text-danger fw-bold fs-5 mx-3':  order.status === 'Đã hủy'
+
                         }">
                             {{ order.status }}
                         </span>
