@@ -7,7 +7,7 @@
                 <i class="fas fa-laugh-wink"></i>
             </div>
             <div class="sidebar-brand-text mx-3">
-                <router-link :to="{ name: 'admin' }" style="color: rgba(255, 255, 255, .8);">
+                <router-link :to="{ name: 'admin' }" style="color: rgba(255, 255, 255, .8); text-decoration: none">
                     BookStore
                 </router-link>
             </div>
@@ -21,7 +21,7 @@
             <a class="nav-link" href="">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>
-                    <router-link :to="{ name: 'admin' }" style="color: rgba(255, 255, 255, .8);">
+                    <router-link :to="{ name: 'admin' }" style="color: rgba(255, 255, 255, .8); text-decoration: none">
                         Trang chủ
                     </router-link>
                 </span></a>
@@ -41,7 +41,7 @@
                 aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
                 <span>
-                    <router-link :to="{ name: 'adminpage' }" style="color: rgba(255, 255, 255, .8);">
+                    <router-link :to="{ name: 'adminpage' }" style="color: rgba(255, 255, 255, .8); text-decoration: none">
                         Người dùng
                     </router-link>
                 </span>
@@ -53,7 +53,7 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <router-link :to="{ name: 'productadmin' }" style="color: rgba(255, 255, 255, .8);">
+                <router-link :to="{ name: 'productadmin' }" style="color: rgba(255, 255, 255, .8); text-decoration: none">
                     Sách
                 </router-link>
             </a>
@@ -66,7 +66,7 @@
                 aria-expanded="true" aria-controls="collapsePages">
                 <i class="fas fa-fw fa-folder"></i>
                 <span>
-                    <router-link :to="{ name: 'order' }" style="color: rgba(255, 255, 255, .8);">
+                    <router-link :to="{ name: 'order' }" style="color: rgba(255, 255, 255, .8); text-decoration: none">
                         Sách được mượn
                     </router-link>
                 </span>
