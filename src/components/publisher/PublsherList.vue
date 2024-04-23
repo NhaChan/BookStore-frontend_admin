@@ -1,10 +1,9 @@
 <template>
-
     <div id="content">
         <div class="container-fluid ">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Độc giả</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Nhà xuất bản</h6>
                 </div>
                 <div class="card-body table-responsive">
                     <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
@@ -23,13 +22,8 @@
 
                                     <thead>
                                         <tr>
-                                            <th rowspan="1" colspan="1">Tên tác phẩm</th>
-                                            <th rowspan="1" colspan="1">Tác giả</th>
-                                            <th rowspan="1" colspan="1">NXB</th>
-                                            <th rowspan="1" colspan="1">Thể loại</th>
-                                            <th rowspan="1" colspan="1">Mô tả</th>
-                                            <th rowspan="1" colspan="1">Hình ảnh</th>
-                                            <th rowspan="1" colspan="1">Số lượng kho</th>
+                                            <th rowspan="1" colspan="1">Tên nhà xuất bản</th>
+                                            <th rowspan="1" colspan="1">Địa chỉ</th>
                                             <th rowspan="1" colspan="1"></th>
 
 
@@ -39,19 +33,13 @@
                                         <tr v-for="(product, index) in products" :key="product._id"
                                             :class="{ active: index === activeIndex }"
                                             @click="updateActiveIndex(index)">
-                                            <td>{{ product.title }}</td>
-                                            <td>{{ product.author }}</td>
-                                            <td>{{ product.publisher }}</td>
-                                            <td>{{ product.genre }}</td>
-                                            <td class="description-cell">{{ product.description }}</td>
-                                            <td>
-                                                <img :src="product.imageUrl" alt="Hình ảnh" class="product-image" />
-                                            </td>
-                                            <td>{{ product.quantity }}</td>
+                                            <td>{{ product.name }}</td>
+                                            <td>{{ product.address }}</td>
+                                            
                                             <td>
                                                 <div>
                                                     <router-link
-                                                        :to="{ name: 'product.edit', params: { id: product._id }, }">
+                                                        :to="{ name: 'publish.edit', params: { id: product._id }, }">
                                                         <button type="button"
                                                             class="btn btn-outline-success">Sửa</button>
                                                     </router-link>
@@ -71,9 +59,7 @@
             </div>
         </div>
     </div>
-
 </template>
-
 
 <style>
 .product-image {
@@ -91,7 +77,7 @@
 
 
 <script>
-import productService from '@/services/product.service';
+import productService from '@/services/publish.service';
 export default {
     props: {
         products: { type: Array, default: [] },

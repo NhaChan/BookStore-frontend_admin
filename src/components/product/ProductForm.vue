@@ -1,5 +1,6 @@
 <template>
-    <Form style="max-width: 600px; margin: 0 auto;" @submit="submitProduct" :validation-schema="ProductFormSchema" class="login-form">
+    <Form style="max-width: 600px; margin: 0 auto;" @submit="submitProduct" :validation-schema="ProductFormSchema"
+        class="login-form">
         <div class="form-group mt-4 mb-4">
             <label for="title">Tiêu đề</label>
             <Field name="title" type="text" class="form-control" v-model="productLocal.title" />
@@ -9,6 +10,15 @@
             <label for="author">Tác giả</label>
             <Field name="author" type="text" class="form-control" v-model="productLocal.author" />
             <ErrorMessage name="author" class="error-feedback" />
+        </div>
+        <div class="form-group mt-4 mb-4">
+            <label for="publisher">Nhà xuất bản</label>
+            <select v-model="productLocal.publisher" class="form-control">
+                <option value="">
+                    Chọn nhà xuất bản
+                </option>
+                <option v-for="publisher in Publishers" :key="publisher._id" :value="publisher.name">{{ publisher.name }}</option>
+            </select>
         </div>
         <div class="form-group mt-4 mb-4">
             <label for="genre">Thể loại</label>
@@ -44,6 +54,7 @@
 <script>
 import * as yup from "yup";
 import { Form, Field, ErrorMessage } from "vee-validate";
+import PublishService from "@/services/publish.service";
 export default {
     components: {
         Form,
@@ -65,6 +76,8 @@ export default {
                 .string()
                 .required("Tác giả phải có giá trị.")
                 .max(50, "Tác giả có nhiều nhất 50 ký tự."),
+            publisher: yup
+                .string(),
             genre: yup
                 .string()
                 .required("Thể loại phải có giá trị.")
@@ -79,15 +92,20 @@ export default {
         return {
             productLocal: this.product,
             ProductFormSchema,
+            Publishers: [],
         };
     },
     methods: {
         submitProduct() {
             this.$emit("submit:product", this.productLocal);
         },
-        // deleteContact() {
-        //     this.$emit("delete:product", this.productLocal.id);
-        // }
+        async getPublish() {
+            this.Publishers = await PublishService.getAll();
+            console.log('object', this.Publishers)
+        }
+    },
+    mounted() {
+        this.getPublish();
     },
 };
 </script>

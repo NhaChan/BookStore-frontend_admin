@@ -47,6 +47,17 @@
                 </span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-fw fa-cog"></i>
+                <span>
+                    <router-link :to="{ name: 'publishadmin' }" style="color: rgba(255, 255, 255, .8); text-decoration: none">
+                        Nhà xuất bản
+                    </router-link>
+                </span>
+            </a>
+        </li>
 
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">

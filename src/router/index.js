@@ -5,6 +5,7 @@ import AdminUser from "@/views/user/AdminUser.vue";
 import Product from "@/views/product/AdminProduct.vue";
 import OrderManager from "@/views/order/OrderManager.vue";
 import PageAdmin from "@/components/PageAdmin.vue";
+import AdminPublisher from "@/views/publisher/AdminPublisher.vue";
 
 const routes = [
     {
@@ -32,7 +33,24 @@ const routes = [
         component: () => import("@/views/user/UserEdit.vue"),
         props: true
     },
-    //Product
+    //Publisher
+    {
+        path: "/admin/publish",
+        name: "publishadmin",
+        component: AdminPublisher,
+    },
+    {
+        path: "/admin/publish/addpublish",
+        name: "publish.add",
+        component: () => import("@/views/publisher/PublisherAdd.vue"),
+        props: true
+    },
+    {
+        path: "/admin/publish/editpublish/:id",
+        name: "publish.edit",
+        component: () => import("@/views/publisher/PublisherEdit.vue"),
+        props: true
+    },
     {
         path: "/admin/product",
         name: "productadmin",
@@ -45,7 +63,7 @@ const routes = [
         props: true
     },
     {
-        path: "/admin/product/addproduct/:id",
+        path: "/admin/product/eidtproduct/:id",
         name: "product.edit",
         component: () => import("@/views/product/ProductEdit.vue"),
         props: true
