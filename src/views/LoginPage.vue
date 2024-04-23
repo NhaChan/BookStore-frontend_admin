@@ -31,7 +31,7 @@ export default {
             try {
                 const res = await AuthService.login(data.email, data.password);
                 if (res.role == true) {
-                    this.$router.push({ name: "adminpage" });
+                    this.$router.push({ name: "admin" });
                     Cookies.set('userId', res._id);
                     Cookies.set('userName', res.name)
                 }
