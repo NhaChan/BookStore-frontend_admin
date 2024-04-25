@@ -31,7 +31,7 @@
             <ErrorMessage name="description" class="error-feedback" />
         </div>
         <div class="form-group mt-4 mb-4">
-            <label for="imageUrl">Hình ảnh (URL)</label>
+            <label for="imageUrl">Hình ảnh</label>
             <Field name="imageUrl" type="text" class="form-control" v-model="productLocal.imageUrl" />
             <ErrorMessage name="imageUrl" class="error-feedback" />
         </div>
